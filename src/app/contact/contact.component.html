@@ -1,0 +1,33 @@
+<div class="container">
+    <h2 class="text-center text-light" >Contact Details</h2>
+    <form >
+        <div class="search mt-3"><input name="search"  placeholder="search" type="text" class="form-control" [(ngModel)]="searchkey" ></div>
+    </form>
+    <table class="table mt-5">
+        <thead >
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Phone </th>
+                <th>Address</th>
+                <th>Company Name</th>
+                <th>Job title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contact of Allcontact | filterpipe:searchkey :'name' ">
+                <td>{{contact.firstName}}{{contact.lastName}}</td>
+                <td><img width="100px" height="100px" src="{{contact.image}}" alt=""></td>
+                <td>{{contact.age}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.phone}}</td>
+                <td>{{contact.address.address}},{{contact.address.city}}</td>
+                <td>{{contact.company.name}}</td>
+                <td>{{contact.company.title}}</td>
+            </tr >
+        </tbody>
+    </table>
+
+</div>
